@@ -2,6 +2,9 @@
 %First we define some variables. All units of length are in micrometers
 %(\mu m)
 %positive y is towards PEN. 
+%Also, a note: we define zero do be where either: 1)transparency is
+%actually zero 2) we are inside the ThGEM 3) the photon could possibly pass
+%through another hole as well so the calculations are not valid. 
 clear();
 clf;
 invtwopi=0.159154943091895335768883763372514362034459645740456448747667344;
