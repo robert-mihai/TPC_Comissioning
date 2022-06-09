@@ -41,7 +41,7 @@ int size_double = sizeof(double);
 /*int size_intptr = sizeof *int;
 int size_floatptr = sizeof *float;
 int size_strptr = sizeof *string ;*/
-double flagval = 999999999; //Nine nines. Will be used to signal end of a subfile. 
+//double flagval = 999999999; //Nine nines. Will be used to signal end of a subfile. 
 
 //Get filename(s) from user
 string readfilepath, writefilepath, name, lastchar;
