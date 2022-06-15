@@ -45,7 +45,7 @@ int size_strptr = sizeof *string ;*/
 
 //Get filename(s) from user
 string readfilepath, writefilepath, name, lastchar;
-string stub = "/eos/user/r/ramarine/Year1_PhD/TPC/Comissioning/TPC_Ana/LecroyPMT_Ana/Data_ExcelAcquisition/";
+string stub = "/";
 
 if (1 == argc){
     //this path is just a backup in case none is entered. 
