@@ -1,9 +1,11 @@
 #!/bin/bash
 #Code to separate folders into folders with at most 5000 events. 
 
+name_array=()
 for dir in *_ii_*/; do
  temp=$(echo $dir)
- base_name=${temp%?}
+ name_array+=${temp%?}
+for base_name in $name_array; do
  a_name=$base_name"_a"
  b_name=$base_name"_b"
  rm -r $a_name
@@ -20,4 +22,5 @@ for dir in *_ii_*/; do
   filename="/C4Test000""$i"".txt"
   cp $base_name$filename $b_name$filename
  done
+done
 done
