@@ -76,7 +76,7 @@ if (argc>3){
    name = argv[3];
 }
 else if (stub.length()<readfilepath.length()-2){
-    name = readfilepath.substr(stub.length(), readfilepath.length()-stub.length()-1);
+    name = readfilepath.substr(stub.length()-1, readfilepath.length()-stub.length()-1);
 }
 else {
  cout << "Please enter a name including the values of all pertinent parameters corresponding to the data in the read file.";
