@@ -19,10 +19,10 @@ convertToString(){
     echo "$colName"
 }
 
- if ! [ "_" == ${foldername: -3:1} ]; then #We want to exclude _a, _b, _c, etc. partition folders produced in previous runs. Technically if we have crazy numbers of folders this will no longer work, i.e. if we get to _aa, _ab, _ac, etc., but this is better than nothing. 
+ if ! [ "_" == ${foldername:-3:1} ]; then #We want to exclude _a, _b, _c, etc. partition folders produced in previous runs. Technically if we have crazy numbers of folders this will no longer work, i.e. if we get to _aa, _ab, _ac, etc., but this is better than nothing. 
     #we will split into new folders to only have num_files_per_folder C4Tests in each folder
     num_files=$(find $foldername"/C4Test000"*".txt" -maxdepth 1 -type f | wc -l) 
-    num_new_folders=$(( (num_files / num_files_per_folder) + 1 ))
+    num_new_folders=$(( (num_files+num_files_per_folder-1)/num_files_per_folder ))
     if (( $num_new_folders > 1 )); then
         for foldnum in $( seq 1 $num_new_folders ); do 
             #give each new folder a unique name by adding _a, _b, etc. to the end of the name of the original folder
@@ -40,7 +40,7 @@ convertToString(){
                     filename="/C4Test000""$i"".txt"
                     copyname="/C4Test000""$ctr"".txt"
                     cp "$foldername""$filename" "$name""$copyname"
-                    ctr=(( $ctr + 1 ))
+                    ctr=$(( $ctr + 1 ))
                 done 
                 ./$executable_name $name
                 #Remove the old files, as they are no longer needed. Comment these two lines out if you want to keep them. 
