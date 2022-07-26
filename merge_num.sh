@@ -35,9 +35,12 @@ convertToString(){
                 cp $foldername"/C1Test0000.txt" $name"/C1Test0000.txt"
                 first_idx=$(( 5000 * ($foldnum - 1) ))
                     last_idx=$(( $first_idx + 4999 ))
+                    ctr=0
                     for i in $( seq $first_idx $last_idx ); do 
                     filename="/C4Test000""$i"".txt"
-                    cp "$foldername""$filename" "$name""$filename"
+                    copyname="/C4Test000""$ctr"".txt"
+                    cp "$foldername""$filename" "$name""$copyname"
+                    ctr=(( $ctr + 1 ))
                 done 
                 ./$executable_name $name
                 #Remove the old files, as they are no longer needed. Comment these two lines out if you want to keep them. 
